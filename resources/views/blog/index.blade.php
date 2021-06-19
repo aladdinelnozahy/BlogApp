@@ -25,12 +25,28 @@
                 <div class="card-body">
                     <h2 class="card-title">{{$post->title}}</h2>
                     <p class="card-text">{{$post->description}}</p>
-                    <p class="card-text"><small class="text-muted">Post by {{$post->user->name}} , created on {{date('jS M Y', ($post->updated_at))}}</small></p>
-                    {{-- @if(isset(Auth::user()->id) && Auth::user()->id == $post->user_id) --}}
-                        <span>
-                            <a href="/blog/{{$post->slug}}/edit" class=" btn btn-primary">Edit</a>
-                        </span>
-                    {{-- @endif --}}
+                    {{-- ($post->updated_at) --}}
+                    <p class="card-text"><small class="text-muted">Post by {{$post->user->name}} , created on {{date('jS M Y', )}}</small></p>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span>
+                                    <a href="/blog/{{$post->slug}}/edit" class=" btn btn-primary">Edit</a>
+            
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <span>
+                                    <form action="/blog/{{$post->slug}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger " type="submit">Delete</button>
+                                    </form>
+                                </span>
+                            </div>
+                            
+                            
+                        </div>
+                        
 
                 </div>
 

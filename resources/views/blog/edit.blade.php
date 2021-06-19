@@ -30,10 +30,7 @@
             <textarea name="description" class="text-dark form-control" id="" cols="30" rows="10">{{$post->description}}</textarea>
         </div>
         <div class="custom-file p-3 ">
-            <input type="file" name="image" class=" custom-file-input">
-            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
             <button class="btn btn-primary btn-lg " type="submit">Submit Post</button>
-
         </div>
 
         </form>

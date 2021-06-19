@@ -40,7 +40,7 @@ class PostsContoller extends Controller
             'description'=>$request->input('description'),
             'slug'=>SlugService::createSlug(Post::class, 'slug', $request->title),
             'image_path'=>$newImageName,
-            'user_id'=>auth()->user()->id
+            'user_id'=>1
         ]);
         return redirect('/blog')->with('message', 'your post has been added');
     }
@@ -53,6 +53,34 @@ class PostsContoller extends Controller
         return view ('blog.edit')->with('post', Post::where('slug', $slug)->first());
 
    
+    }
+    /**
+     * @param \Illuminate\Http\Response
+     * @param string $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function update (Request $request,$slug){
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+        ]);
+        Post::where('slug', $slug)->update([
+            'title'=>$request->input('title'),
+            'description'=>$request->input('description'),
+            'slug'=>SlugService::createSlug(Post::class, 'slug', $request->title),
+            'user_id'=>1
+        ]);
+        return redirect('/blog')->with('message', 'your post has been updated');
+    }
+    /**
+     * @param \Illuminate\Http\Response
+     * @param string $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy ($slug){
+        $post = Post::where('slug', $slug);
+        $post->delete();
+        return redirect('/blog')->with('message', 'your post has been deleted');
     }
 
 
