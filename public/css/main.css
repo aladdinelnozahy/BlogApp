@@ -1,0 +1,19 @@
+.navlogo{
+    width:50px;
+}
+
+.background-cover{
+    background-image: url(../imgs/blog-cover.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* position: relative; */
+    background-attachment: fixed;
+    height:500px;
+}
+.section1{
+    margin: 10px 0 10px 0;
+}
+.section3{
+    padding: 20px;
+}
