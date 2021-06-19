@@ -6,16 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
   <link rel="stylesheet" href="{{asset('css/main.css')}}">
-
+  <script src="{{asset('js/app.js')}}"></script>
   <title>{{config('app.name', 'laravel')}}</title>
-  <script src="{{ asset('js/app.js') }}"></script>
-
 </head>
 <body>
   {{-- start navbar --}}
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img class="navlogo" src="imgs/bloglogo.png" alt="">
-    <a class="navbar-brand" href="{{url('/')}}">Welcome to Bloger</a>
+    <a class="navbar-brand" href="#">Welcome to Bloger</a>
     <div class="container-fluid">
       
       
@@ -41,7 +39,7 @@
         </ul>
       </div>
   </nav>
-
+ 
   {{-- end navbar  --}}
 
   {{-- start content  --}}
@@ -54,9 +52,8 @@
       @include('layouts.footer')
   </div>
   {{-- end footer  --}}
-
-  <script src="{{asset('js/app.js')}}"></script>
-  <script type="text/javascript" src="{!! asset('assets/js/bootstrap.js') !!}"></script>
+ 
+  {{-- <script src="{{asset('js/app.js')}}"></script> --}}
 </body>
 </html>
 

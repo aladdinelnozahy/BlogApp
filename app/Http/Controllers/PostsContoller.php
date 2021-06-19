@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Post;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 class PostsContoller extends Controller
 {
     public function index(){
@@ -19,6 +20,7 @@ class PostsContoller extends Controller
      * @param \Illuminate\Http\Request
      * @param \Illuminate\Http\Response
      */
+    
     public function store (request $request){
         // dd($request);
         $request->validate([
@@ -28,7 +30,31 @@ class PostsContoller extends Controller
         ]);
         $newImageName=uniqid().'-'. $request->title.'-'.$request->image->extension();
         // dd($newImageName);
-        $request->image->move(public_path('images'),$newImageName)
+        $request->image->move(public_path('images'),$newImageName);
+
+        
+        // dd($slug);
+        
+        Post::create([
+            'title'=>$request->input('title'),
+            'description'=>$request->input('description'),
+            'slug'=>SlugService::createSlug(Post::class, 'slug', $request->title),
+            'image_path'=>$newImageName,
+            'user_id'=>auth()->user()->id
+        ]);
+        return redirect('/blog')->with('message', 'your post has been added');
     }
+
+    /**
+     * @param string $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function edit ($slug){
+        return view ('blog.edit')->with('post', Post::where('slug', $slug)->first());
+
+   
+    }
+
+
 }
 

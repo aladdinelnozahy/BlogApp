@@ -3,7 +3,7 @@
 @section('content')
     <div class="p-4  text-center">
         <h2 class="display-4">
-            Blog Posts
+            Update Posts
         </h2 >
         <a href="blog/create" role="button" class="btn btn-success btn-lg">Add Post</a>
     </div>
@@ -18,15 +18,16 @@
         </ul>
     </div>        
     @endif
-    <form action="/blog" method="POST" enctype="multipart/form-data" class="p-5 ">
+    <form action="/blog/{{$post->slug}}" method="POST" enctype="multipart/form-data" class="p-5 ">
         @csrf
+        @method('PUT')
         <div class="form-group">
             <label for="formGroupExampleInput"> title</label>
-            <input type="text" name="title" placeholder="Title" class="form-control">
+            <input type="text" name="title" value="{{$post->title}}" class="text-dark form-control">
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2">description</label>
-            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="10"></textarea>
+            <textarea name="description" class="text-dark form-control" id="" cols="30" rows="10">{{$post->description}}</textarea>
         </div>
         <div class="custom-file p-3 ">
             <input type="file" name="image" class=" custom-file-input">
