@@ -29,7 +29,7 @@
             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="10"></textarea>
         </div>
         <div class="custom-file p-3 ">
-            <input type="file" class="custom-file-input" id="validatedCustomFile" >
+            <input type="file" name="image" class=" custom-file-input">
             <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
             <button class="btn btn-primary btn-lg " type="submit">Submit Post</button>
 

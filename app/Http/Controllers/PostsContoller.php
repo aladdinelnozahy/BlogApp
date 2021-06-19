@@ -27,7 +27,8 @@ class PostsContoller extends Controller
             'image'=>'required|mimes:jpg,png,jpeg|max:5048'
         ]);
         $newImageName=uniqid().'-'. $request->title.'-'.$request->image->extension();
-        dd($newImageName);
+        // dd($newImageName);
+        $request->image->move(public_path('images'),$newImageName)
     }
 }
 
