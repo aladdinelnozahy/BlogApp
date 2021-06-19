@@ -31,10 +31,10 @@
             {{-- {{ route('site.home') }} --}}
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link disabled" href="#" >Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Register</a>
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" >Register</a>
           </li>
         </ul>
       </div>

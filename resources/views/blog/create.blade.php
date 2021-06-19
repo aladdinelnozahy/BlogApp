@@ -5,7 +5,6 @@
         <h2 class="display-4">
             Blog Posts
         </h2 >
-        <a href="blog/create" role="button" class="btn btn-success btn-lg">Add Post</a>
     </div>
     @if ($errors->any())
     <div class="m-auto">
